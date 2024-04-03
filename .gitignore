@@ -1,2 +1,4 @@
 java/fileLoader.class
 dotnet/fileLoader.exe
+rust/fileLoader.exe
+rust/fileLoader.pdb
