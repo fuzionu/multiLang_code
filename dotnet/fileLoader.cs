@@ -7,7 +7,8 @@ class fileLoader
 	{
 		if(File.Exists("dupa.txt"))
 		{
-			Console.WriteLine("Wszystko git, jest plik wariacie");
+			string text = File.ReadAllText("dupa.txt");
+			Console.WriteLine(text);
 		}
 		else
 		{
