@@ -2,7 +2,8 @@ const file = require("fs");
 
 if(file.existsSync("dupa.txt"))
 {
-	console.log("Wszystko git, jest plik mordo");
+	const text = file.readFileSync("./dupa.txt").toString('utf-8');
+	console.log(text);
 }
 else
 {
