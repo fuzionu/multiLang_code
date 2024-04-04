@@ -1,10 +1,12 @@
 use std::path::Path;
+use std::fs;
 
 fn main()
 {
 	if Path::new("dupa.txt").exists()
 	{
-		print!("Wszystko git, jest plik wariacie");
+		let text = fs::read_to_string("dupa.txt").expect("Unable to read file");
+		print!("{}", text);
 	}
 	else
 	{
