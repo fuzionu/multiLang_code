@@ -2,8 +2,7 @@ import os
 
 def main():
 	if os.path.isfile("dupa.txt"):
-		print("Wszystko git, jest plik mordo")
-		
+		print(open("dupa.txt").read())		
 	else:
 		print("Nie ma takiego pliku wariacie")
 	
