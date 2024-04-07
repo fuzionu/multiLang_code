@@ -3,7 +3,6 @@ const file = require("fs");
 if (process.argv.length == 2)
 {
 	console.error("Podaj nazwe pliku byku");
-	process.exit(1);
 }
 
 else if (process.argv.length > 3)
