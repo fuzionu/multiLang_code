@@ -1,8 +1,16 @@
 import os
+import sys
 
 def main():
-	if os.path.isfile("dupa.txt"):
-		print(open("dupa.txt").read())		
+	if len(sys.argv) == 1:
+		print("Podaj nazwe pliku byku")
+	
+	elif len(sys.argv) > 2:
+		print("Podaj tylko jeden plik")
+		
+	elif os.path.isfile(sys.argv[1]):
+		print(open(sys.argv[1]).read())		
+		
 	else:
 		print("Nie ma takiego pliku wariacie")
 	
