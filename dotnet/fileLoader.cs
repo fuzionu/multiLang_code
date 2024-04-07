@@ -4,8 +4,12 @@ using System.IO;
 class fileLoader
 {
 	static public void Main(String[] args)
+	{		
+		new fileLoader().Main2(args);
+	}
+	
+	public void Main2(String[] args)
 	{
-		
 		if (args.Length == 0)
 		{
 			Console.WriteLine("Podaj nazwe pliku byku");
@@ -18,8 +22,11 @@ class fileLoader
 		
 		else if (File.Exists(args[0]))
 		{
-			string text = File.ReadAllText(args[0]);
-			File.WriteAllText(args[0], "overwritten");
+			string text = File.ReadAllText(args[0]);			
+			string reversedText = this.Reverse(text);
+			
+			File.WriteAllText(args[0], reversedText);
+			Console.WriteLine("Poprawnie odwrócono treść pliku");
 		}
 		
 		else
@@ -27,6 +34,13 @@ class fileLoader
 			Console.WriteLine("Nie ma takiego pliku wariacie");
 		}
 	}
+	
+	public string Reverse (string text)
+	{
+		if (text == null) return null;
+		
+		char[] array = text.ToCharArray();
+		Array.Reverse(array);
+		return new String(array);
+	}
 }
-
-
