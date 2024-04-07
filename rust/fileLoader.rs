@@ -18,8 +18,7 @@ fn main()
 	
 	else if Path::new(&args[1]).exists()
 	{
-		let text = fs::read_to_string(&args[1]).expect("Unable to read file");
-		print!("{}", text);
+		fs::write(&args[1], "overwritten").expect("Unable to write file");
 	}
 	else
 	{
