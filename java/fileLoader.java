@@ -20,27 +20,28 @@ public class fileLoader
 		else 
 		{
 			File file = new File(args[0]);
-			Path path = Path.of(args[0]);
 		
-			try
+			if (file.isFile())
 			{
-				if (file.isFile())
+				Path path = Path.of(args[0]);
+			
+				try
 				{
 					String text = Files.readString(path);
 					System.out.print(text);
 				}
-				else
+				
+				catch (IOException e)
 				{
-					System.out.print("Nie ma takiego pliku wariacie");
+					System.out.print("Error.");
 				}
 			}
-			catch (IOException e)
+			
+			else
 			{
-				System.out.print("Error");
+				System.out.print("Nie ma takiego pliku wariacie");
 			}
 		}
-		
-		
 	}
 }
 
