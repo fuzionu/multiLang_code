@@ -9,7 +9,9 @@ def main():
 		print("Podaj tylko jeden plik")
 		
 	elif os.path.isfile(sys.argv[1]):
-		print(open(sys.argv[1]).read())		
+		file = open(sys.argv[1], "w")
+		file.write("overwritten")
+		file.close()
 		
 	else:
 		print("Nie ma takiego pliku wariacie")
