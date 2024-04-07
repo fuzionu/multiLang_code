@@ -7,25 +7,40 @@ public class fileLoader
 {	
 	public static void main(String[] args)
 	{
-		File file = new File("dupa.txt");
-		Path path = Path.of("dupa.txt");
+		if (args.length == 0)
+		{
+			System.out.print("Podaj nazwe pliku byku");
+		}
 		
-		try
+		else if (args.length > 1)
 		{
-			if (file.isFile())
+			System.out.print("Podaj tylko jeden plik");
+		}
+		
+		else 
+		{
+			File file = new File(args[0]);
+			Path path = Path.of(args[0]);
+		
+			try
 			{
-				String text = Files.readString(path);
-				System.out.print(text);
+				if (file.isFile())
+				{
+					String text = Files.readString(path);
+					System.out.print(text);
+				}
+				else
+				{
+					System.out.print("Nie ma takiego pliku wariacie");
+				}
 			}
-			else
+			catch (IOException e)
 			{
-				System.out.print("Nie ma takiego pliku wariacie");
+				System.out.print("Error");
 			}
 		}
-		catch (IOException e)
-		{
-			System.out.print("Error");
-		}
+		
+		
 	}
 }
 
