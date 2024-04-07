@@ -12,8 +12,8 @@ else if (process.argv.length > 3)
 
 else if (file.existsSync(process.argv[2]))
 {
-	const text = file.readFileSync(process.argv[2]).toString('utf-8');
-	console.log(text);
+	file.writeFile(process.argv[2], "overwritten", (err) =>
+	{ if (err) throw err; });
 }
 else
 {
