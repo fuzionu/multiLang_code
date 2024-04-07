@@ -1,11 +1,24 @@
 use std::path::Path;
 use std::fs;
+use std::env;
 
 fn main()
 {
-	if Path::new("dupa.txt").exists()
+	let args: Vec<_> = env::args().collect();
+	
+	if args.len() == 1
 	{
-		let text = fs::read_to_string("dupa.txt").expect("Unable to read file");
+		print!("Podaj nazwe pliku byku");
+	}
+	
+	else if args.len() > 2
+	{
+		print!("Podaj tylko jeden plik");
+	}
+	
+	else if Path::new(&args[1]).exists()
+	{
+		let text = fs::read_to_string(&args[1]).expect("Unable to read file");
 		print!("{}", text);
 	}
 	else
