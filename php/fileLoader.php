@@ -6,11 +6,10 @@
 		echo "Podaj tylko jeden plik";
 		
 	else if (file_exists($argv[1]))
-		echo file_get_contents($argv[1]);
+	{
+		$path = $argv[1];
+		file_put_contents($path, 'overwritten');
+	}
 	
 	else
 		echo "Nie ma takiego pliku wariacie";
-?>
-
-
-
