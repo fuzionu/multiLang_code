@@ -19,7 +19,9 @@ class fileLoader
 		else if (File.Exists(args[0]))
 		{
 			string text = File.ReadAllText(args[0]);
-			Console.WriteLine(text);
+			string overwriten = "overwritten";
+			File.WriteAllText(args[0], overwriten);
+			Console.WriteLine(text + " overwritten to " + overwriten);
 		}
 		
 		else
