@@ -1,8 +1,19 @@
 const file = require("fs");
 
-if(file.existsSync("dupa.txt"))
+if (process.argv.length == 2)
 {
-	const text = file.readFileSync("./dupa.txt").toString('utf-8');
+	console.error("Podaj nazwe pliku byku");
+	process.exit(1);
+}
+
+else if (process.argv.length > 3)
+{
+	console.error("Podaj tylko jeden plik");
+}
+
+else if (file.existsSync(process.argv[2]))
+{
+	const text = file.readFileSync(process.argv[2]).toString('utf-8');
 	console.log(text);
 }
 else
