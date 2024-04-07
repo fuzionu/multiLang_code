@@ -30,12 +30,9 @@ public class fileLoader
 				{
 					String text = Files.readString(path);
 					
-					String overwritten = "overwritten";
-					FileWriter fileWriter = new FileWriter(file, false);
-					fileWriter.write(overwritten);
+					FileWriter fileWriter = new FileWriter(file);
+					fileWriter.write("overwritten");
 					fileWriter.close();
-					
-					System.out.print(text + " changed to " + overwritten);
 				}
 				
 				catch (IOException e)
