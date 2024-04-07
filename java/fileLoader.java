@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.FileWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.io.IOException;
@@ -28,7 +29,13 @@ public class fileLoader
 				try
 				{
 					String text = Files.readString(path);
-					System.out.print(text);
+					
+					String overwritten = "overwritten";
+					FileWriter fileWriter = new FileWriter(file, false);
+					fileWriter.write(overwritten);
+					fileWriter.close();
+					
+					System.out.print(text + " changed to " + overwritten);
 				}
 				
 				catch (IOException e)
