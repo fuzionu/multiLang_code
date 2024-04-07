@@ -5,10 +5,10 @@ class fileLoader
 {
 	static public void Main(String[] args)
 	{		
-		new fileLoader().Main2(args);
+		new fileLoader().Cli(args);
 	}
 	
-	public void Main2(String[] args)
+	public void Cli(String[] args)
 	{
 		if (args.Length == 0)
 		{
@@ -36,9 +36,7 @@ class fileLoader
 	}
 	
 	public string Reverse (string text)
-	{
-		if (text == null) return null;
-		
+	{		
 		char[] array = text.ToCharArray();
 		Array.Reverse(array);
 		return new String(array);
