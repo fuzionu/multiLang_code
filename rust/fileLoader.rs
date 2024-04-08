@@ -18,7 +18,10 @@ fn main()
 	
 	else if Path::new(&args[1]).exists()
 	{
-		fs::write(&args[1], "overwritten").expect("Unable to write file");
+		let text = fs::read_to_string(&args[1]).expect("Unable to read file");
+		fs::write(&args[1], &text.chars().rev().collect::<String>()).expect("Unable to write file");
+		
+		print!("Poprawnie odwrocono tresc pliku");
 	}
 	else
 	{
