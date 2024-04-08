@@ -8,7 +8,10 @@
 	else if (file_exists($argv[1]))
 	{
 		$path = $argv[1];
-		file_put_contents($path, 'overwritten');
+		$text = file_get_contents($path);
+		
+		file_put_contents($path, strrev($text));
+		echo "Poprawnie odwrocono tresc pliku";
 	}
 	
 	else
