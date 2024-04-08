@@ -57,13 +57,11 @@ public class fileLoader
 	
 	public String reverse(String text)
 	{
-		char letter;
 		String reversedText = "";
 		
 		for (int x = 0; x < text.length(); x++)
 		{
-			letter = text.charAt(x);
-			reversedText = letter + reversedText;
+			reversedText = text.charAt(x) + reversedText;
 		}
 		
 		return reversedText;
