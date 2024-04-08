@@ -8,6 +8,11 @@ public class fileLoader
 {	
 	public static void main(String[] args)
 	{
+		new fileLoader().Cli(args);
+	}
+	
+	public void Cli(String[] args)
+	{
 		if (args.length == 0)
 		{
 			System.out.print("Podaj nazwe pliku byku");
@@ -29,10 +34,12 @@ public class fileLoader
 				try
 				{
 					String text = Files.readString(path);
-					
+										
 					FileWriter fileWriter = new FileWriter(file);
-					fileWriter.write("overwritten");
+					fileWriter.write(reverse(text));
 					fileWriter.close();
+					
+					System.out.print("Poprawnie odwrocono tresc pliku");
 				}
 				
 				catch (IOException e)
@@ -47,6 +54,19 @@ public class fileLoader
 			}
 		}
 	}
+	
+	public String reverse(String text)
+	{
+		char letter;
+		String reversedText = "";
+		
+		for (int x = 0; x < text.length(); x++)
+		{
+			letter = text.charAt(x);
+			reversedText = letter + reversedText;
+		}
+		
+		return reversedText;
+	}
+	
 }
-
-
