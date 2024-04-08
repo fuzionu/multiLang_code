@@ -1,3 +1,8 @@
+function reverse(text) 
+{
+	return text.split("").reverse().join("");
+}
+
 const file = require("fs");
 
 if (process.argv.length == 2)
@@ -12,8 +17,12 @@ else if (process.argv.length > 3)
 
 else if (file.existsSync(process.argv[2]))
 {
-	file.writeFile(process.argv[2], "overwritten", (err) =>
+	const text = file.readFileSync(process.argv[2]).toString('utf-8');
+		
+	file.writeFile(process.argv[2], reverse(text), (err) =>
 	{ if (err) throw err; });
+	
+	console.error("Poprawnie odwrocono tresc pliku");
 }
 else
 {
