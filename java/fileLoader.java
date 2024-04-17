@@ -57,14 +57,18 @@ public class fileLoader
 	
 	public String reverse(String text)
 	{
-		String reversedText = "";
+		String words[] = text.split("\\s");
+		String reversedWord="";
 		
-		for (int x = 0; x < text.length(); x++)
+		for(String w:words)
 		{
-			reversedText = text.charAt(x) + reversedText;
+			StringBuilder stringBuilder = new StringBuilder(w);
+			stringBuilder.reverse();
+			
+			reversedWord += stringBuilder.toString()+" ";
 		}
 		
-		return reversedText;
+		return reversedWord;
 	}
 	
 }
