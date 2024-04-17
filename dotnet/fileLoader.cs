@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Linq;
 
 class fileLoader
 {
@@ -37,8 +38,8 @@ class fileLoader
 	
 	public string Reverse (string text)
 	{		
-		char[] array = text.ToCharArray();
-		Array.Reverse(array);
-		return new String(array);
+		string reversed = string.Join(" ", text.Split(' ').Select(s => new String(s.Reverse().ToArray())));
+		
+		return reversed;		
 	}
 }
