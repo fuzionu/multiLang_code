@@ -1,6 +1,6 @@
 function reverse(text) 
 {
-	return text.split("").reverse().join("");
+	return text.split("").reverse().join("").split(" ").reverse().join(" ");
 }
 
 const file = require("fs");
