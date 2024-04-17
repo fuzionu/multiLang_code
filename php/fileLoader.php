@@ -1,4 +1,17 @@
 <?php
+	function reverseString($inpStr)
+	{
+		$words = explode(" ", $inpStr);
+		$reversedWords = "";
+		
+		foreach ($words as $word)
+		{
+			$reversedWords = $reversedWords . strrev($word) . " ";
+		}
+		
+		return $reversedWords;
+	}
+
 	if (!isset($argv[1]))
 		echo "Podaj nazwe pliku byku";
 	
@@ -10,7 +23,7 @@
 		$path = $argv[1];
 		$text = file_get_contents($path);
 		
-		file_put_contents($path, strrev($text));
+		file_put_contents($path, reverseString($text));
 		echo "Poprawnie odwrocono tresc pliku";
 	}
 	
