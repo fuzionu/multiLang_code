@@ -19,6 +19,12 @@ fn main()
 	else if Path::new(&args[1]).exists()
 	{
 		let text = fs::read_to_string(&args[1]).expect("Unable to read file");
+		let words_iterator = text.split(" ");
+		
+		let words_vector: Vec<&str> = words_iterator.collect();
+		words_vector.join(" ");
+		
+		
 		fs::write(&args[1], &text.chars().rev().collect::<String>()).expect("Unable to write file");
 		
 		print!("Poprawnie odwrocono tresc pliku");
@@ -28,3 +34,4 @@ fn main()
 		print!("Nie ma takiego pliku wariacie");
 	}
 }
+
